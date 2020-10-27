@@ -1,10 +1,9 @@
-import Home from "./Home";
-import About from "./About";
-import Error from "./Error";
-import Products from "./Products";
-import SingleProducts from "./SingleProducts";
-import Login from "./Login";
-import Cart from "./Cart";
-import Checkout from "./Checkout";
+import { Alert } from "./Alert";
+import { Hero } from "./Hero";
+import { Loader } from "./Loader";
+import { LoginLink } from "./LoginLink";
+import { Navbar } from "./Navbar";
+import { PrivateRoute } from "./PrivateRoute";
+import { ScrollButton } from "./ScrollButton";
 
-export { Home, About, Error, Products, SingleProducts, Login, Cart, Checkout };
+export { Alert, Hero, Loader, LoginLink, Navbar, PrivateRoute, ScrollButton };

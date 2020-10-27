@@ -10,7 +10,7 @@ const loaderVariants = {
 
 export const Loader = () => {
   return (
-    <section className="flex justify-center">
+    <section className="grid place-items-center h-screen">
       <motion.div
         className="h-6 w-6 rounded-full bg-red-400 text-center"
         variants={loaderVariants}
