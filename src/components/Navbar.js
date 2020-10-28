@@ -51,7 +51,9 @@ export const Navbar = () => {
                 className="capitalize tracking-widest text-blue-600 font-semibold"
                 key={id}
               >
-                <Link to={url}>{text}</Link>
+                <Link to={url} onClick={() => setToggle(!toggle)}>
+                  {text}
+                </Link>
               </button>
             );
           })}
