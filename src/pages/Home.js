@@ -53,8 +53,8 @@ export const Home = () => {
           </div>
           <div className="text-center mx-auto">
             <div
-              style={{ maxWidth: "500px", maxheight: "500px" }}
-              className="text-center"
+              style={{ maxWidth: "500px", maxHeight: "500px" }}
+              className="text-center overflow-hidden"
             >
               <img
                 className="mt-4 mb:mt-0 md:h-full md:w-full h-64 w-64 mx-auto object-cover object-top"

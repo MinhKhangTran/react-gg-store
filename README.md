@@ -1,2 +1,3 @@
 # react-gg-store
-Created with CodeSandbox
+
+[Live Demo](https://csb-0lpe9.netlify.app/)
