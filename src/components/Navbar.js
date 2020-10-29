@@ -2,9 +2,12 @@ import React from "react";
 import { links } from "../assets/links";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
+import { useUserContext } from "../context/user";
+import { LoginLink } from "../components/LoginLink";
 
 export const Navbar = () => {
   const [toggle, setToggle] = React.useState(false);
+  const { user } = useUserContext();
   return (
     <section className="bg-blue-200">
       <nav className="w-11/12 md:w-2/3 mx-auto md:flex justify-between items-center p-4">
@@ -57,6 +60,9 @@ export const Navbar = () => {
               </button>
             );
           })}
+          <button className="capitalize tracking-widest text-blue-600 font-semibold">
+            <LoginLink toggle={toggle} setToggle={setToggle} />
+          </button>
         </div>
       </nav>
     </section>

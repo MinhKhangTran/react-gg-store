@@ -1,10 +1,14 @@
 import React from "react";
 import { reducer } from "./reducer";
-import localCart from "../utils/localCart";
+// import localCart from "../utils/localCart";
 export const CartContext = React.createContext();
 
+const getFromLocal = () => {
+  return JSON.parse(localStorage.getItem("cart")) || [];
+};
+
 const initState = {
-  cart: localCart,
+  cart: getFromLocal(),
   total: 0,
   amount: 0
 };
@@ -24,9 +28,19 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: "DECREASE", payload: id });
   };
   const addToCart = (product) => {
-    dispatch({ type: "ADD_TO_CART", payload: product });
+    let item = [...state.cart].find((album) => album.id === product.id);
+    console.log(item);
+
+    if (item) {
+      dispatch({ type: "INCREASE", payload: product.id });
+    } else {
+      dispatch({ type: "ADD_TO_CART", payload: product });
+    }
   };
   React.useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(state.cart));
+    // console.log(getFromLocal());
+
     dispatch({ type: "GET_TOTALS" });
   }, [state.cart]);
 

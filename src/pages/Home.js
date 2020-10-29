@@ -3,6 +3,17 @@ import React from "react";
 import { Loader } from "../components/Loader";
 import { useProductContext } from "../context/products";
 import { FeaturedProducts } from "../components/Products/FeaturedProducts";
+import { motion } from "framer-motion";
+
+const containerVariantes = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+
+    transition: { duration: 0.7, type: "spring", stiffness: 50 }
+  },
+  exit: { opacity: 0 }
+};
 
 export const Home = () => {
   const { loading, tab, value, setValue } = useProductContext();
@@ -13,7 +24,12 @@ export const Home = () => {
   const { name, abumName } = tab[value];
   const { name: image } = tab[value].images[2];
   return (
-    <div>
+    <motion.div
+      variants={containerVariantes}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <div className="bg-blue-300 py-8 h-screen grid place-items-center">
         <section className="bg-blue-300 flex w-11/12 md:w-2/3 mx-auto justify-between mb-8 flex-wrap md:flex-no-wrap">
           <div className="flex md:flex-col justify-center md:leading-10 text-blue-600 font-semibold md:text-2xl flex-wrap md:flex-no-wrap">
@@ -59,6 +75,6 @@ export const Home = () => {
         Unsere Bestseller!
       </h1>
       <FeaturedProducts />
-    </div>
+    </motion.div>
   );
 };

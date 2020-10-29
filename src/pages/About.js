@@ -1,8 +1,26 @@
 import React from "react";
 import aboutpic from "../assets/about.png";
+import { motion } from "framer-motion";
+
+const containerVariantes = {
+  hidden: { opacity: 0, x: "100vw" },
+  visible: {
+    opacity: 1,
+    x: "0",
+    transition: { duration: 0.7, type: "spring", stiffness: 50 }
+  },
+  exit: { opacity: 0, x: "-100vw" }
+};
 export const About = () => {
   return (
-    <section className="flex w-4/5 mx-auto flex-wrap mt-4 h-screen items-center">
+    <motion.section
+      variants={containerVariantes}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="flex w-4/5 mx-auto flex-wrap mt-4 items-center"
+      style={{ height: "80vh" }}
+    >
       <div style={{ width: "400px" }}>
         <img src={aboutpic} alt="store" className="rounded-lg" />
       </div>
@@ -24,6 +42,6 @@ export const About = () => {
           dreamcatcher master cleanse yuccie.
         </p>
       </div>
-    </section>
+    </motion.section>
   );
 };
