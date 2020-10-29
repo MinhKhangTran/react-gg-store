@@ -1,9 +1,9 @@
 import React from "react";
 
-export const Error = () => {
+export const PrivateRoute = () => {
   return (
     <>
-      <h1>Error</h1>
+      <h1>PrivateRoute</h1>
     </>
   );
 };
