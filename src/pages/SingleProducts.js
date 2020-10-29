@@ -23,7 +23,7 @@ export const SingleProducts = () => {
   console.log(tab);
 
   const newAlbum = tab.find((album) => album.id === parseInt(id));
-  // console.log(newAlbum);
+  console.log(newAlbum);
 
   const { name, Tracklist, Erscheinungsdatum, abumName, images } = newAlbum;
   return loading ? (

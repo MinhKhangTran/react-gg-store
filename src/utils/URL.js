@@ -1,5 +1,5 @@
 // url
-export default "http://localhost:1337";
+export default "https://gg-store-api.herokuapp.com";
 
 // local fix
 // setup free claudinary

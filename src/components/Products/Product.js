@@ -1,10 +1,39 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
+const containerVariats = {
+  hidden: { opacity: 0, y: "-100vh" },
+  visible: {
+    opacity: 1,
+    y: "0",
+    transition: {
+      duration: 0.7,
+      type: "spring",
+      stiffness: 50,
+      staggerChildren: 0.4,
+
+      when: "beforeChildren"
+    }
+  },
+  exit: { opacity: 0 }
+};
+const productVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1
+  }
+};
 
 export const Product = ({ id, name, abumName, images }) => {
   return (
-    <article className="w-11/12 mx-auto">
-      <div className="flex">
+    <motion.article
+      className="w-11/12 mx-auto"
+      variants={containerVariats}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.div className="flex" variants={productVariants}>
         <div style={{ width: "150px", height: "150px" }}>
           <img
             className="w-full h-full object-cover"
@@ -21,7 +50,7 @@ export const Product = ({ id, name, abumName, images }) => {
             </button>
           </Link>
         </div>
-      </div>
-    </article>
+      </motion.div>
+    </motion.article>
   );
 };
